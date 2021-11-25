@@ -95,16 +95,26 @@ class Course
         MaxMarks= s1.nextInt();
     }
     public void viewContent()
-    {
-        System.out.println("Create A Course: ");
-        System.out.print("Enter CourseCode: ");
-        Scanner sc=new Scanner(System.in);
-        courseCode=sc.nextLine();
-        System.out.print("Enter CourseName: ");
-        courseName=sc.nextLine();
-        Scanner s1=new Scanner(System.in);
-        System.out.print("Enter MaxMarks: ");
-        MaxMarks= s1.nextInt();
+    {    
+	Scanner InputStream = null;
+        try{
+
+            InputStream = new Scanner(new FileInputStream("CourseContent.txt"));
+            String line = InputStream.nextLine();
+            while(line!=null){
+                System.out.println(line);
+                line = InputStream.nextLine();          
+            }
+        }
+        catch(FileNotFoundException e){
+            System.err.println("Error opening Course Contents");
+            System.exit(0);
+        }
+        catch(NoSuchElementException e){
+            System.exit(0);
+        }
+        InputStream.close();
+
     }
 
 }
