@@ -73,7 +73,7 @@ class Course
         }
         catch(FileNotFoundException e){
             System.err.println("Error opening the file CourseContent.txt");
-            System.exit(0);
+//             System.exit(0);
         }
         catch(IOException e){
             System.err.println(e.getMessage());
@@ -108,10 +108,10 @@ class Course
         }
         catch(FileNotFoundException e){
             System.err.println("Error opening Course Contents");
-            System.exit(0);
+//             System.exit(0);
         }
         catch(NoSuchElementException e){
-            System.exit(0);
+//             System.exit(0);
         }
         InputStream.close();
 
